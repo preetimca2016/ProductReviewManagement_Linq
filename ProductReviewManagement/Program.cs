@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to product review management system");
-            Console.WriteLine("\n1.Add Values to list \n2.Retrieve Top 3 Records\nEnter Option: ");
+            Console.WriteLine("\n1.Add Values to list \n2.Retrieve Top 3 Records \n3.Retrieve Records Based On Rating and Product Id\nEnter Option: ");
             int option = Convert.ToInt32(Console.ReadLine());
             //Creating a list for Product Review 
             List<ProductReviews> productReviews = new List<ProductReviews>();
@@ -16,6 +16,9 @@
                     break;
                 case 2:
                     Products.RetrieveTopThreeRating(productReviews);
+                    break;
+                case 3:
+                    Products.RetrieveRecordsBasedOnRatingAndProductId(productReviews);
                     break;
 
             }
