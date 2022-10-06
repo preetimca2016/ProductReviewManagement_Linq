@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,6 +69,28 @@ namespace ProductReviewManagement
             Console.WriteLine("\n Skip Top Five records in list");
             var res = (from product in products orderby product.rating descending select product).Skip(5).ToList();
             DisplayRecord(res);
+        }
+        //UC-8 DataTable Create
+        public static void CreateDataTable(List<ProductReviews> products)
+        {
+            AddingProductReview(products);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("productId");
+            dt.Columns.Add("userId");
+            dt.Columns.Add("rating");
+            dt.Columns.Add("review");
+            dt.Columns.Add("isLike", typeof(bool));
+
+            foreach (var data in products)
+            {
+                dt.Rows.Add(data.productId, data.userId, data.rating, data.review, data.isLike);
+            }
+            DisplayTable(dt);
+        }
+
+        private static void DisplayTable(DataTable dt)
+        {
+            throw new NotImplementedException();
         }
     }
 }
