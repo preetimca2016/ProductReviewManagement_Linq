@@ -26,6 +26,9 @@
                 case 5:
                     Products.RetrieveOnlyProductIdAndReviews(productReviews);
                     break;
+                case 6:
+                    Products.SkipTopFiveRecords(productReviews);
+                    break;
 
             }
         }
