@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace ProductReviewManagement
 {
-
     public class Products
     {
         public static void AddingProductReview(List<ProductReviews> products)
@@ -36,7 +35,6 @@ namespace ProductReviewManagement
             Console.WriteLine("\nRetrieving Top Three Records Based On Rating\n");
             var res = (from product in products orderby product.rating descending select product).Take(3).ToList();
             DisplayRecord(res);
-
         }
     }
 }

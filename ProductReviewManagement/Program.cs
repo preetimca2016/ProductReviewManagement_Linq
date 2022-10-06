@@ -17,6 +17,7 @@
                 case 2:
                     Products.RetrieveTopThreeRating(productReviews);
                     break;
+
             }
         }
     }
