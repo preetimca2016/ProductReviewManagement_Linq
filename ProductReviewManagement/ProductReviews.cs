@@ -13,5 +13,6 @@ namespace ProductReviewManagement
         public int rating { get; set; }
         public string review { get; set; }
         public bool isLike { get; set; }
+
     }
 }

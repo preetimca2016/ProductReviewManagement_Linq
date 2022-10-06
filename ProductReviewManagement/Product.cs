@@ -36,5 +36,22 @@ namespace ProductReviewManagement
             var res = (from product in products orderby product.rating descending select product).Take(3).ToList();
             DisplayRecord(res);
         }
+        public static void RetrieveRecordsBasedOnRatingAndProductId(List<ProductReviews> products)
+        {
+            AddingProductReview(products);
+            Console.WriteLine("\nRetrieve Records Based On Rating and Product Id\n");
+            var res = (from product in products where product.rating > 3 && (product.productId == 1 || product.productId == 4 || product.productId == 9) select product).ToList();
+            DisplayRecord(res);
+        }
+        public static void CountingProductId(List<ProductReviews> products)
+        {
+            AddingProductReview(products);
+            var data = products.GroupBy(x => x.productId).Select(a => new { ProductId = a.Key, count = a.Count() });
+            Console.WriteLine(data);
+            foreach (var ele in data)
+            {
+                Console.WriteLine("ProductId " + ele.ProductId + " " + "Count " + " " + ele.count);
+            }
+        }
     }
 }
